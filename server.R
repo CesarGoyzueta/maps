@@ -1,17 +1,3 @@
-#library("httr")
-library("readxl")
-library("leaflet")
-library("dplyr")
-library("ggplot2")
-library("htmltools")
-library("lubridate")
-library("scales")
-library("forcats")
-library("shinydashboard")
-library("shinythemes")
-library("shinyWidgets")
-library("fresh")
-
 library("httr")
 library("readxl")
 library("leaflet")
@@ -25,6 +11,7 @@ library("shinydashboard")
 library("shinythemes")
 library("shinyWidgets")
 library("fresh")
+
 GET("https://query.data.world/s/rjngr5uzhv4ihxvhak3bvny66uoj47", write_disk(tf1 <- tempfile(fileext = ".xlsx")))
 
 #Sampling
@@ -267,10 +254,7 @@ server <- function(input, output) {
     
     
     
-    
-    
-    
-    
+  
     
 }
 
