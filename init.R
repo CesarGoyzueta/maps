@@ -5,10 +5,11 @@ my_packages=c("httr","readxl","leaflet","shiny","shinydashboard","shinythemes","
 
 install_if_missing=function(p){
   if(p %in% rownames(installed.packages())==FALSE){
-    install.packages(p) 
+    install.packages(p,dependencies=TRUE) 
      }
   }
 
 
 invisible(sapply(my_packages,install_if_missing))
 
+?install.packages
