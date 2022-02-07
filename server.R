@@ -1,6 +1,5 @@
 library("httr")
 library("readxl")
-library("leaflet")
 library("dplyr")
 library("ggplot2")
 library("htmltools")
@@ -175,41 +174,8 @@ server <- function(input, output) {
     
     #MAPA
     
-    output$mymap <- renderLeaflet({
-        
-        data_map<-df%>%filter(PV %in% input$PV,month_name %in% input$Months)%>%group_by(Latitude,Longitude,Capacity,PV,site_name)%>%summarise(Power=sum(Power))
-        
-        
-        palette<-colorFactor(palette=c("#111D4A","#92140C"),levels=c("Distribution_PV","Utility_Scale PV"))  #esto debe estar igual al dato
-        
-        
-        
-        leaflet(options=leafletOptions(minZoom=7,maxZoom=18))%>%
-            addTiles(group="OSM")%>%
-            addProviderTiles("CartoDB",group="Carto")%>%
-            addProviderTiles("Esri",group="Esri")%>%
-            addCircleMarkers(data=data_map,
-                             color=~palette(PV),
-                             lng=~Longitude,
-                             lat=~Latitude,
-                             radius=~Power/700,
-                             popup =~paste0(
-                                 "<b>", "Capacity: ","</b>",Capacity, "</br>","Longitude: ",
-                                 Longitude,"</br>","Latitude: ",Latitude),
-                             clusterOptions=markerClusterOptions())%>%
-            addLayersControl(baseGroups=c("OSM","Carto","Esri"))%>%
-            addLegend(pal=palette,values = c("Distribution_PV", "Utility_Scale PV"),
-                      opacity = 0.5, title = "PV", position = "topright")
-        
-        
-        
-        
-    })
-    
-    
-    
-    
-    
+  
+
     
     
     output$violin<-renderPlot({

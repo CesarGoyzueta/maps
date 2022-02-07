@@ -1,6 +1,6 @@
 #init.R
 
-my_packages=c("httr","readxl","leaflet","shiny","shinydashboard","shinythemes","shinyWidgets","highcharter","bslib",
+my_packages=c("httr","readxl","shiny","shinydashboard","shinythemes","shinyWidgets","highcharter","bslib",
               "thematic","dplyr","ggplot2","htmltools","lubridate","scales","forcats","fresh","libgeos")
 
 install_if_missing=function(p){

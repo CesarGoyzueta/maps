@@ -8,7 +8,6 @@
 #
 library("httr")
 library("readxl")
-library("leaflet")
 library("dplyr")
 library("ggplot2")
 library("htmltools")
@@ -92,10 +91,7 @@ body<-dashboardBody(use_theme(mytheme),
                                 valueBoxOutput("max_power"),
                                 column(width=6,
                                        box(solidHeader=TRUE,title="Quantity of centers order by their capacity",
-                                           plotOutput("ggplot_bar",height="50vh"),width=12)),
-                                column(width=6,
-                                       box(solidHeader=TRUE,title="Map of centers",
-                                           leafletOutput("mymap",height="50vh"),width=12,height="100%"))
+                                           plotOutput("ggplot_bar",height="50vh"),width=12))
                             ),
                             fluidRow(
                                 column(width=12,
